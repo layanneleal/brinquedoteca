@@ -22,7 +22,7 @@ function adicionarCriancas() {
   inIdade.value=''
   inNome.focus()
 
-  listarCarros() //Chama function que lista as crianças 
+  listarCriancas() //Chama function que lista as crianças 
 
   //Verifica se o array está vazio
   if (criancas.length == 0) {
@@ -34,6 +34,38 @@ function adicionarCriancas() {
   for (let i = 0; i < criancas.length; i++) {
     lista += criancas[i].nome + ' . ' + criancas[i].idade + ' anos\n'
   }
-  
+  //Exibe lista em uma única instrução
+  document.getElementById('outLista').textContent = lista
+}
+let btListar = document.getElementById('btListar')
+btListar.addEventListener('click', listarCriancas)
+
+function resumirLista() {
+  //Verifica se o vetor está vazio
+  if (criancas.length == 0) {
+    alert('Não há crianças na lista')
+    return
+  }
+
+  let copia = criancas.slice() //Cria uma cópia do array crianças
+  //Ordena o array cópia pela idade
+  copia.sort(function(a, b) {return a.idade - b.idade})
+
+  let resumo = '' //Concatena saída
+
+  let aux = copia[0].idade //Menor idade do array ordenado
+  let nomes = [] //Array para inserir nomes de cada idade
+
+  //Percorre os elementos do array (classificado por idade)
+  for (let i = 0; i < copia.length; i++) {
+    //Se é da mesma idade auxiliar, adiciona ao array
+    if (copia[i].idade == aux) {
+      nomes.push(copia[i].nome)
+    }else{
+      
+    }
+
+
+  }
 
 }
