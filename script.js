@@ -5,7 +5,7 @@ function adicionarCriancas() {
   let inNome = document.getElementById('inNome')
   let inIdade = document.getElementById('inIdade')
 
-  let nome = inNome.value //Obtem conteúdos dos campos
+  let nome = inNome.value.toUpperCase() //Obtem conteúdos dos campos
   let idade = Number(inIdade.value)
 
   //Verifica preenchimento dos campos
@@ -23,6 +23,12 @@ function adicionarCriancas() {
   inNome.focus()
 
   listarCriancas() //Chama function que lista as crianças 
+}
+//Cria referência ao btAdicionar e associa function ao evento click deste botão
+let btAdicionar = document.getElementById('btAdicionar')
+btAdicionar.addEventListener('click', adicionarCriancas)
+
+function listarCriancas() {
 
   //Verifica se o array está vazio
   if (criancas.length == 0) {
@@ -35,8 +41,9 @@ function adicionarCriancas() {
     lista += criancas[i].nome + ' . ' + criancas[i].idade + ' anos\n'
   }
   //Exibe lista em uma única instrução
-  document.getElementById('outLista').textContent = lista
+document.getElementById('outLista').textContent = lista
 }
+
 let btListar = document.getElementById('btListar')
 btListar.addEventListener('click', listarCriancas)
 
@@ -72,15 +79,15 @@ function resumirLista() {
       nomes.push(copia[i].nome) //Adiciona o primeiro da nova idade
     }
   }
-      //Adiciona os nomes da última idade ordenada
-      resumo += aux + ' ano(s): ' + nomes.length + ' criança(s) - '
-      resumo += (nomes.length / copia.length * 100).toFixed(2) + '%\n'
-      resumo += '(' + nomes.join(', ') + ')\n\n'
+    //Adiciona os nomes da última idade ordenada
+    resumo += aux + ' ano(s): ' + nomes.length + ' criança(s) - '
+    resumo += (nomes.length / copia.length * 100).toFixed(2) + '%\n'
+    resumo += '(' + nomes.join(', ') + ')\n\n'
 
-      //Altera conteúdo de outlista
-      
-
-
- 
-
+    //Altera conteúdo de outlista
+document.getElementById('outLista').textContent = resumo
 }
+let btResumir = document.getElementById('btResumir')
+btResumir.addEventListener('click', resumirLista)
+
+
