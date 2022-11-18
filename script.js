@@ -62,10 +62,25 @@ function resumirLista() {
     if (copia[i].idade == aux) {
       nomes.push(copia[i].nome)
     }else{
-      
+      //Senão, adiciona ao resumo, dados e nomes inseridos em nomes[]
+      resumo += aux + ' ano(s): ' + nomes.length + ' criança(s) -'
+      resumo += (nomes.length / copia.length * 100).toFixed(2) + '%\n'
+      resumo += '(' + nomes.join(', ') + ')\n\n'
+      aux = copia[i].idade //Obtem a nova idade na ordem
+      nomes = [] //Limpa os arrays dos nomes
+
+      nomes.push(copia[i].nome) //Adiciona o primeiro da nova idade
     }
-
-
   }
+      //Adiciona os nomes da última idade ordenada
+      resumo += aux + ' ano(s): ' + nomes.length + ' criança(s) - '
+      resumo += (nomes.length / copia.length * 100).toFixed(2) + '%\n'
+      resumo += '(' + nomes.join(', ') + ')\n\n'
+
+      //Altera conteúdo de outlista
+      
+
+
+ 
 
 }
