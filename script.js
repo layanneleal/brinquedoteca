@@ -38,9 +38,9 @@ function listarCriancas() {
   let lista = '' //Concatena lista de crianças
 
   for (let i = 0; i < criancas.length; i++) {
-    lista += criancas[i].nome + ' . ' + criancas[i].idade + ' anos\n'
+    lista += criancas[i].nome + ' - ' + criancas[i].idade + ' anos\n'
   }
-  //Exibe lista em uma única instrução
+//Exibe lista em uma única instrução
 document.getElementById('outLista').textContent = lista
 }
 
@@ -70,7 +70,7 @@ function resumirLista() {
       nomes.push(copia[i].nome)
     }else{
       //Senão, adiciona ao resumo, dados e nomes inseridos em nomes[]
-      resumo += aux + ' ano(s): ' + nomes.length + ' criança(s) -'
+      resumo += aux + ' ano(s): ' + nomes.length + ' criança(s) - '
       resumo += (nomes.length / copia.length * 100).toFixed(2) + '%\n'
       resumo += '(' + nomes.join(', ') + ')\n\n'
       aux = copia[i].idade //Obtem a nova idade na ordem
@@ -84,7 +84,7 @@ function resumirLista() {
     resumo += (nomes.length / copia.length * 100).toFixed(2) + '%\n'
     resumo += '(' + nomes.join(', ') + ')\n\n'
 
-    //Altera conteúdo de outlista
+//Altera conteúdo de outlista
 document.getElementById('outLista').textContent = resumo
 }
 let btResumir = document.getElementById('btResumir')
